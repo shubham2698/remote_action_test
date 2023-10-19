@@ -1,0 +1,26 @@
+name: Slack Bot
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+    Send-slack-notification:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout Code
+          uses: actions/checkout@v4 
+
+        - name: send to payload to slack
+          uses: ./report-to-slack
+          with:
+            channel-id: "C06168TBVT8"
+            slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
+            github_repository: ${{ github.repository }}
+            github_branch: ${{ github.ref_name }}
+            github_run_id: ${{ github.run_id }}
+          env:
+            COLOR_CODE: "#36a64f" 
+        
