@@ -14,7 +14,7 @@ jobs:
           uses: actions/checkout@v4 
 
         - name: send to payload to slack
-          uses: shubham2698/slack_integration/report-to-slack/action.yaml
+          uses: shubham2698/slack_integration@master/report-to-slack/action.yaml
           with:
             channel-id: "C06168TBVT8"
             slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
