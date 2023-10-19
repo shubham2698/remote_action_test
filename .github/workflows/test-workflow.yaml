@@ -16,6 +16,7 @@ jobs:
         - name: send to payload to slack
           uses: shubham2698/slack_integration/report-to-slack@master
           with:
+            payload-file-path: "./payload/payload.json"
             channel-id: "C06168TBVT8"
             slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
             github_repository: ${{ github.repository }}
